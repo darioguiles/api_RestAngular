@@ -51,12 +51,20 @@ export class AppComponent {
       });
     }
     getCategorias() {
-      this.appService.getCategorias().subscribe((data) =>
-        this.categorias= (data as any));
+      this.appService.getCategorias().subscribe({next: (data) => {
+        this.categorias= (data as Categoria[])},
+      error: (error) => {
+        //console.error(error);
+        this.setAviso("Error de conexión al servidor.")
+      } });
     }
     getUsuarios() {
-      this.appService.getUsuarios().subscribe((data) =>
-        this.usuarios= (data as any));
+      this.appService.getUsuarios().subscribe({next: (data) => {
+        this.usuarios= (data as Usuario[])},
+      error: (error) => {
+        //console.error(error);
+        this.setAviso("Error de conexión al servidor.")
+      } });
     }
     getProductosDesde(precio:number) {
       this.appService.getProductosDesde(precio).subscribe((data) =>
