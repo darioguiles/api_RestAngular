@@ -1,0 +1,74 @@
+<h1>Ejemplo de API-REST</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <button (click)="reset()">
+                Reset
+            </button>
+        </div>
+        <div class="col">
+            <button (click)="getProductos()">
+                Productos
+            </button>
+        </div>
+        <div class="col">
+            <button (click)="getProductosDesde(3)">
+                Productos>3€
+            </button>
+        </div>
+        <div class="col">
+            <button (click)="getCategorias()">
+                Categorías
+            </button>
+        </div>
+        <div class="col">
+            <button (click)="getUsuarios()">
+                Usuarios
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button (click)="crearProducto()">
+                Crear producto ejemplo
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h1>Productos</h1>
+            <p *ngFor="let p of productos">
+                {{ p.nombre }}, {{ p.precio }} 
+                <button class="btn btn-primary"
+                    (click)="updateProducto(p,99)">
+                    Modificar a 99
+                </button>
+                <button class="btn btn-danger"
+                    (click)="eliminarProducto(p)">
+                    X
+                </button>
+            </p>
+        </div>
+        <div class="col-4">
+            <h1>Categorías</h1>
+            <p *ngFor="let c of categorias">
+                {{ c.nombre }} => {{ c | json}}
+            </p>
+        </div>
+        <div class="col-4">
+            <h1>Usuarios</h1>
+            <p *ngFor="let u of usuarios">
+                {{ u.nombre }} => {{ u | json}}
+            </p>
+        </div>
+    </div>
+</div>
+<!-- <div *ngFor="let p of pruebaSin2()">
+    {{ p.id }}:{{ p.nombre }}
+</div>
+<div *ngFor="let p of prueba">
+    {{ p.id }}:{{ p.nombre }}
+</div> -->
+
+<div class="footer" *ngIf="aviso.length>0">{{ aviso }}</div>
