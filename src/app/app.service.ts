@@ -14,6 +14,8 @@ const PR_DESDEPRECIOURL = "http://localhost:3000/productos?precio_gte="
 const PR_DELETEURL = "http://localhost:3000/productos/"
 const CATEGORIASURL = "http://localhost:3000/categorias";
 const USUARIOSURL = "http://localhost:3000/usuarios";
+const US_DELETEURL = "http://localhost:3000/usuarios/"
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +31,8 @@ export class AppService {
    getCategorias():Observable<Object>{
     return this.http.get(CATEGORIASURL);
    }
-   getUsuarios(){
-    return ;
+   getUsuarios():Observable<Object>{
+    return this.http.get(USUARIOSURL);
    }
    getProductosDesde(precio:number):Observable<Object>{
     let cadena:string = PR_DESDEPRECIOURL + precio.toString();
@@ -45,13 +47,42 @@ export class AppService {
     return this.http.delete(url, httpOptions)
       .pipe(catchError(this.handleError));
    }
+
+
    crearProducto(producto:Producto):Observable<Object>{
     return this.http.post<Producto>(PRODUCTOSURL, producto, httpOptions);
    }
+
+
    updateProducto(producto:Producto):Observable<Object>{
     const url = `${PRODUCTOSURL}/${producto.id}`;
     return this.http.put<Producto>(url, producto, httpOptions);
    }
+
+   /* CRUD USUARIO */
+
+
+   deleteUsuario(id:number):Observable<unknown> {
+    const url = `${US_DELETEURL}/${id}`
+    return this.http.delete(url, httpOptions)
+      .pipe(catchError(this.handleError));
+   }
+
+
+   crearUsuario(usuario:Usuario):Observable<Object>{
+    return this.http.post<Usuario>(USUARIOSURL, usuario, httpOptions);
+   }
+
+
+   updateUsuario(usuario:Usuario):Observable<Object>{
+    const url = `${USUARIOSURL}/${usuario.id}`;
+    return this.http.put<Usuario>(url, usuario, httpOptions);
+   }
+
+   
+   
+  
+
 
    private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
@@ -81,7 +112,7 @@ export interface Categoria {
 }
 
 export interface Usuario {
-  id: 2,
+  id: number, //Aqui estaba 2??
   nombre: string,
   resultado: any[],
   passwd: string

@@ -117,10 +117,66 @@ export class AppComponent {
           this.setAviso('Error al eliminar producto.')
         })});
 
-      }
+      }    
     quitarDeProductos(p:Producto){
       this.productos=this.productos.filter(x => x.id!=p.id)
     }
+
+    /* USUARIOS */
+
+    crearUsuario(){
+      let usuario:Usuario={
+        id: 99,
+        nombre: "ejemplo",
+        resultado: [],
+        passwd: "passwd"
+
+      };
+
+      this.appService.crearUsuario(usuario).subscribe(
+          {next: () => {
+            console.log("usuario creado: ", usuario);
+            this.usuarios.push(usuario);
+          },
+          error: (error:HttpErrorResponse) => {
+            let s:string;
+            s=error.error
+            s=s.substring(0,s.indexOf(' at '))
+            this.setAviso(s);
+            console.error(s, error.message);
+          }});
+    }
+    updateUsuario(u:Usuario, nombre:string) {
+      let copiaUsuario = {...u};
+      copiaUsuario.nombre = nombre;
+      this.appService.updateUsuario(copiaUsuario).subscribe({
+        next: (data) =>
+          u.nombre = nombre,
+        error: error => {
+          this.setAviso('Error: No se ha podido actualizar'); 
+        }
+        });
+    }
+    eliminarUsuario(u:Usuario) {
+      this.appService.deleteUsuario(u.id).subscribe(
+        {next: (() => {
+          //console.log('eliminarUsuario');
+          this.quitarDeUsuarios(u);
+          }),
+        error:  ((error:any) => {
+          //console.log('Error eliminar usuario', error);
+          this.setAviso('Error al eliminar usuario.')
+        })});
+
+      }    
+    quitarDeUsuarios(u:Usuario){
+      this.usuarios=this.usuarios.filter(x => x.id!=u.id)
+    }
+    
+
+
+
+
 
     setAviso(texto:string){
       this.aviso=texto;

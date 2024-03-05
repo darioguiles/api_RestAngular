@@ -77,12 +77,6 @@
       "nombre": "Jose",
       "resultado": [],
       "passwd": "passwd"
-    },
-    {
-      "id": 5,
-      "nombre": "Miguel",
-      "resultado": [],
-      "passwd": "passwd"
     }
   ]
 }

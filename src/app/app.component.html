@@ -54,12 +54,25 @@
             <h1>Categorías</h1>
             <p *ngFor="let c of categorias">
                 {{ c.nombre }} => {{ c | json}}
+                <!--
+                    <button class="btn btn-primary"
+                    (click)="updateProducto(c,99)">
+                    Modificar a 99
+                </button>
+                    <button class="btn btn-danger"
+                    (click)="eliminarCategoria(c)">
+                    X
+                </button> -->
             </p>
         </div>
         <div class="col-4">
             <h1>Usuarios</h1>
             <p *ngFor="let u of usuarios">
-                {{ u.nombre }} => {{ u | json}}
+                {{ u.nombre }}
+                <button class="btn btn-danger"
+                    (click)="eliminarUsuario(u)">
+                    X
+                </button> 
             </p>
         </div>
     </div>
