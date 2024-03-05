@@ -79,7 +79,28 @@ export class AppService {
     return this.http.put<Usuario>(url, usuario, httpOptions);
    }
 
+   /* CRUD CATEGORIAS */
    
+   /*
+
+   deleteUsuario(id:number):Observable<unknown> {
+    const url = `${US_DELETEURL}/${id}`
+    return this.http.delete(url, httpOptions)
+      .pipe(catchError(this.handleError));
+   }
+
+
+   crearUsuario(usuario:Usuario):Observable<Object>{
+    return this.http.post<Usuario>(USUARIOSURL, usuario, httpOptions);
+   }
+
+
+   updateUsuario(usuario:Usuario):Observable<Object>{
+    const url = `${USUARIOSURL}/${usuario.id}`;
+    return this.http.put<Usuario>(url, usuario, httpOptions);
+   }
+   
+   */ 
    
   
 

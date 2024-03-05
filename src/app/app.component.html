@@ -34,6 +34,11 @@
                 Crear producto ejemplo
             </button>
         </div>
+        <div class="col">
+            <button (click)="crearUsuario()">
+                Crear usuario ejemplo
+            </button>
+        </div>
     </div>
     <div class="row">
         <div class="col-4">
@@ -69,6 +74,11 @@
             <h1>Usuarios</h1>
             <p *ngFor="let u of usuarios">
                 {{ u.nombre }}
+                <button class="btn btn-primary"
+                (click)="updateUsuario(u,'PRUEBA')">
+                Modificar nombre a PRUEBA
+            </button>
+
                 <button class="btn btn-danger"
                     (click)="eliminarUsuario(u)">
                     X

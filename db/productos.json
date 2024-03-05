@@ -56,7 +56,7 @@
   "usuarios": [
     {
       "id": 1,
-      "nombre": "Laura",
+      "nombre": "PRUEBA",
       "resultado": [],
       "passwd": "passwd"
     },
@@ -74,7 +74,13 @@
     },
     {
       "id": 4,
-      "nombre": "Jose",
+      "nombre": "PRUEBA",
+      "resultado": [],
+      "passwd": "passwd"
+    },
+    {
+      "id": 99,
+      "nombre": "PRUEBA",
       "resultado": [],
       "passwd": "passwd"
     }
