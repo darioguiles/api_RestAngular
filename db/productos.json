@@ -17,7 +17,7 @@
     {
       "id": 5,
       "nombre": "Destornillador",
-      "precio": 4.5,
+      "precio": 99,
       "categoria": 1,
       "inventario": 9
     },
@@ -38,19 +38,23 @@
   "categorias": [
     {
       "id": 0,
-      "nombre": "Sin categoría"
+      "nombre": "CatPRUEBA"
     },
     {
       "id": 1,
-      "nombre": "Ferretería"
+      "nombre": "CatPRUEBA"
     },
     {
       "id": 2,
-      "nombre": "Mobiliario"
+      "nombre": "CatPRUEBA"
     },
     {
       "id": 3,
-      "nombre": "Papelería"
+      "nombre": "CatPRUEBA"
+    },
+    {
+      "id": 99,
+      "nombre": "ejemplo"
     }
   ],
   "usuarios": [
@@ -62,13 +66,13 @@
     },
     {
       "id": 2,
-      "nombre": "Carlos",
+      "nombre": "PRUEBA",
       "resultado": [],
       "passwd": "passwd"
     },
     {
       "id": 3,
-      "nombre": "Juan",
+      "nombre": "PRUEBA",
       "resultado": [],
       "passwd": "passwd"
     },

@@ -35,6 +35,11 @@
             </button>
         </div>
         <div class="col">
+            <button (click)="crearCategoria()">
+                Crear categoria ejemplo
+            </button>
+        </div>
+        <div class="col">
             <button (click)="crearUsuario()">
                 Crear usuario ejemplo
             </button>
@@ -58,12 +63,18 @@
         <div class="col-4">
             <h1>Categorías</h1>
             <p *ngFor="let c of categorias">
-                {{ c.nombre }} => {{ c | json}}
+                {{ c.nombre }}
+                <button class="btn btn-primary"
+                (click)="updateCategoria(c,'CatPRUEBA')">
+                Modificar nombre a CatPRUEBA
+            </button>
+                <button class="btn btn-danger"
+                (click)="eliminarCategoria(c)">
+                X
+            </button> 
                 <!--
-                    <button class="btn btn-primary"
-                    (click)="updateProducto(c,99)">
-                    Modificar a 99
-                </button>
+                                    => {{ c | json}}
+
                     <button class="btn btn-danger"
                     (click)="eliminarCategoria(c)">
                     X

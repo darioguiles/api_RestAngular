@@ -13,6 +13,7 @@ const PR_BUSCARNOMBREURL = "http://localhost:3000/productos?nombre="
 const PR_DESDEPRECIOURL = "http://localhost:3000/productos?precio_gte="
 const PR_DELETEURL = "http://localhost:3000/productos/"
 const CATEGORIASURL = "http://localhost:3000/categorias";
+const CT_DELETEURL = "http://localhost:3000/categorias/"
 const USUARIOSURL = "http://localhost:3000/usuarios";
 const US_DELETEURL = "http://localhost:3000/usuarios/"
 
@@ -79,28 +80,28 @@ export class AppService {
     return this.http.put<Usuario>(url, usuario, httpOptions);
    }
 
-   /* CRUD CATEGORIAS */
-   
-   /*
+      /* CRUD CATEGORIAS */
 
-   deleteUsuario(id:number):Observable<unknown> {
-    const url = `${US_DELETEURL}/${id}`
+
+   deleteCategoria(id:number):Observable<unknown> {
+    const url = `${CT_DELETEURL}/${id}`
     return this.http.delete(url, httpOptions)
       .pipe(catchError(this.handleError));
    }
 
 
-   crearUsuario(usuario:Usuario):Observable<Object>{
-    return this.http.post<Usuario>(USUARIOSURL, usuario, httpOptions);
+   crearCategoria(categoria:Categoria):Observable<Object>{
+    return this.http.post<Categoria>(CATEGORIASURL, categoria, httpOptions);
    }
 
 
-   updateUsuario(usuario:Usuario):Observable<Object>{
-    const url = `${USUARIOSURL}/${usuario.id}`;
-    return this.http.put<Usuario>(url, usuario, httpOptions);
+   updateCategoria(categoria:Categoria):Observable<Object>{
+    const url = `${CATEGORIASURL}/${categoria.id}`;
+    return this.http.put<Categoria>(url, categoria, httpOptions);
    }
+
    
-   */ 
+
    
   
 

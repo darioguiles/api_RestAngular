@@ -174,6 +174,54 @@ export class AppComponent {
     }
     
 
+    /* Categoria */
+
+    crearCategoria(){
+      let categoria:Categoria={
+        id: 99,
+        nombre: "ejemplo"
+      };
+
+      this.appService.crearCategoria(categoria).subscribe(
+          {next: () => {
+            console.log("categoria creado: ", categoria);
+            this.categorias.push(categoria);
+          },
+          error: (error:HttpErrorResponse) => {
+            let s:string;
+            s=error.error
+            s=s.substring(0,s.indexOf(' at '))
+            this.setAviso(s);
+            console.error(s, error.message);
+          }});
+    }
+    updateCategoria(c:Categoria, nombre:string) {
+      let copiaCategoria = {...c};
+      copiaCategoria.nombre = nombre;
+      this.appService.updateCategoria(copiaCategoria).subscribe({
+        next: (data) =>
+          c.nombre = nombre,
+        error: error => {
+          this.setAviso('Error: No se ha podido actualizar'); 
+        }
+        });
+    }
+    eliminarCategoria(c:Categoria) {
+      this.appService.deleteCategoria(c.id).subscribe(
+        {next: (() => {
+          //console.log('eliminarCategoria');
+          this.quitarDeCategorias(c);
+          }),
+        error:  ((error:any) => {
+          //console.log('Error eliminar Categoria', error);
+          this.setAviso('Error al eliminar categoria.')
+        })});
+
+      }    
+    quitarDeCategorias(c:Categoria){
+      this.categorias=this.categorias.filter(x => x.id!=c.id)
+    }
+    
 
 
 
